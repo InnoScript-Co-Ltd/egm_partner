@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PrimeReactProvider } from 'primereact/api';
+import { App } from './App';
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import "./assets/css/style.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const value = {
+  appendTo: 'self',
+  cssTransition: true,
+  ripple: true,
+}
+
 root.render(
-  <React.StrictMode>
+  <PrimeReactProvider value={value}>
     <App />
-  </React.StrictMode>
+  </PrimeReactProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
