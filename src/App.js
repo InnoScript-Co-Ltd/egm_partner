@@ -7,8 +7,8 @@ import { AppStore } from "./AppStore";
 export const App = () => {
 
   return (
-    <RouterProvider router={AppRouters}>
-      <Provider store={AppStore} />
-    </RouterProvider>
+    <Provider store={AppStore}>
+      <RouterProvider router={AppRouters} />
+    </Provider>
   )
 }

@@ -1,0 +1,153 @@
+body {
+    background: #1c1b1b;
+    padding: 0px;
+    margin: 0px;
+}
+
+.p-card {
+    background: #222222;
+    color: #fff;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    position: relative;
+}
+
+.p-inputtext,
+.p-inputgroup-addon,
+.p-dropdown,
+.p-dropdown-item,
+.p-dropdown-items,
+.p-datatable-thead > tr > th,
+.p-datatable-tbody > tr > td {
+    color: #ffffff;
+    background: #4b5563;
+    border: 1px solid #959494;
+}
+
+.p-inputgroup > .p-inputtext {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0px;
+}
+
+.p-toolbar {
+    width: 100%;
+    background: #222222;
+    border: 0px;
+    color: #fff;
+    border-radius: 0px;
+}
+
+.p-menu {
+    background-color: #1c1b1b;
+    border: 2px solid #222222;
+    border-radius: 0px;
+}
+
+.p-menu-list,
+.p-submenu-header,
+.p-menuitem,
+.p-tabmenu,
+.p-tabmenu-nav,
+.p-tabmenuitem,
+.p-highlight, 
+.p-menuitem-link,
+.p-confirm-dialog,
+.p-dialog-header,
+.p-dialog-footer,
+.p-dialog-content {
+    background-color: #1c1b1b;
+    background: #1c1b1b;
+    color: #fff;
+    font-size: 12px;
+}
+
+.p-card-subtitle {
+    color: #d7d7d7;
+}
+
+.p-menuitem-content {
+    background-color: #1c1b1b;
+}
+
+.grid {
+    margin: 0px;
+    padding: 0px;
+}
+
+.p-datatable-thead > tr > th,
+.p-datatable-tbody > tr > td {
+    border: 1px solid #1c1b1b;
+    background: #222222;
+}
+
+.p-datatable-tbody > tr > td {
+    font-size: small;
+}
+
+.p-datatable-wrapper::-webkit-scrollbar {
+    width: 10px;
+}
+
+.p-tabmenu-nav {
+    border: 0px;
+}
+
+
+/** Customize CSS **/
+.primary-btn {
+    background: #4b5563;
+    border: 2px solid #959494;
+}
+
+.p-button:not(:disabled):hover {
+    border: 2px solid #959494;
+}
+
+.profile-photo > img {
+    border-radius: 50%;
+    border: 2px solid #4b5563;
+}
+
+.profile-photo {
+    border-radius: 50%;
+}
+
+.app-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.app-menu {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c1b1b;
+    color: #fff;
+    border-right: 2px solid #222222;
+    position: fixed;
+}
+
+.app-menu-item {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #4b5563;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.app-content {
+    width: calc(100% - 82px);
+    margin-left: 80px;
+}
