@@ -12,5 +12,10 @@ export const endpoints = {
     accountKYC: "account/kyc",
     bankAccount: "bank-account",
     image: `${baseUrl}/storage/images`,
-    status: "status"
+    status: "status",
+    referral: "referral",
+    depositPackage: "deposit-package",
+    merchantBankAccount: "merchant-bank-account",
+    deposit: "deposit",
+    transaction: "transaction"
 }

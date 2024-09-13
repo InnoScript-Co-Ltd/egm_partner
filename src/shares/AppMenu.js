@@ -16,12 +16,17 @@ export const AppMenu = () => {
         {
             label: "Deposit",
             icon: "pi-credit-card",
-            path: ""
+            path: paths.deposit
         },
         {
             label: "Bank",
             icon: "pi-credit-card",
             path: paths.bank
+        },
+        {
+            label: "Referral",
+            icon: "pi-share-alt",
+            path: paths.referral
         },
         {
             label: "Logout",

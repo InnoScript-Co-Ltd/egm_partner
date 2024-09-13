@@ -1,8 +1,8 @@
 
 import { endpoints } from "../../constants/endpoints";
 import { getRequest, postRequest, putRequest } from "../../helpers/api";
-import { setNotification } from "../../shares/shareSlice";
-import { index, show } from "./bankAccountSlice";
+import { setErrors, setNotification } from "../../shares/shareSlice";
+import { activeIndex, index, show } from "./bankAccountSlice";
 
 export const bankAccountService = {
     store: async (payload, dispatch) => {
@@ -23,9 +23,23 @@ export const bankAccountService = {
         const result = await getRequest(endpoints.bankAccount, null, dispatch);
         
         if(result.status === 200) {
+            dispatch(setErrors(null));
             dispatch(index(result.data.data ? result.data.data : result.data));
         }
     },
+
+    activeIndex: async (dispatch) => {
+        const result = await getRequest(endpoints.bankAccount, {
+            filter: "status",
+            value: "ACTIVE"
+        }, dispatch);
+
+        if(result.status === 200) {
+            dispatch(setErrors(null));
+            dispatch(activeIndex(result.data.data ? result.data.data : result.data));
+        }
+        return result;
+    },  
 
     show: async (dispatch, id) => {
         const result = await getRequest(`${endpoints.bankAccount}/${id}`, null, dispatch);

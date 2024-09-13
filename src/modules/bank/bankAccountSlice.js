@@ -4,7 +4,8 @@ export const bankAccountSlice = createSlice({
     name: "bankAccount",
     initialState: {
         bankAccounts: [],
-        bankAccount: null
+        bankAccount: null,
+        activeBankAccounts: [],
     },
     reducers: {
         index: (state, action) => {
@@ -16,10 +17,15 @@ export const bankAccountSlice = createSlice({
             state.bankAccount = {...action.payload};
             return state;
         },
+
+        activeIndex: (state, action) => {
+            state.activeBankAccounts = action.payload;
+            return state;
+        }
     }
 });
 
 export const {
-    index, show
+    index, show, activeIndex
 } = bankAccountSlice.actions;
 export default bankAccountSlice.reducer;
