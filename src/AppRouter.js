@@ -4,11 +4,13 @@ import { dashboardRoute } from "./modules/dashboard/dashboardRoute";
 import { bankAccountRoutes } from "./modules/bank/bankAccountRoutes";
 import { referralRoutes } from "./modules/referral/referralRoutes";
 import { depositRoutes } from "./modules/deposit/depositRoutes";
+import { transactionRoutes } from "./modules/transaction/transactionRoutes";
 
 export const AppRouters = createBrowserRouter([
     ...authRoutes,
     ...dashboardRoute,
     ...bankAccountRoutes,
     ...referralRoutes,
-    ...depositRoutes
+    ...depositRoutes,
+    ...transactionRoutes
 ]);

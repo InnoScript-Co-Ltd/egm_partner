@@ -19,6 +19,11 @@ export const AppMenu = () => {
             path: paths.deposit
         },
         {
+            label: "Transactions",
+            icon:"pi-history",
+            path: paths.transaction
+        },
+        {
             label: "Bank",
             icon: "pi-credit-card",
             path: paths.bank

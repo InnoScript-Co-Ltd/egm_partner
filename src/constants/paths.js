@@ -4,5 +4,6 @@ export const paths = {
     bank: "/bank-account",
     login: '/auth/login',
     referral: '/referral',
-    deposit: "/deposit"
+    deposit: "/deposit",
+    transaction: "/transaction",
 }

@@ -4,6 +4,7 @@ import authSlice from './modules/auth/authSlice'
 import bankAccountSlice from './modules/bank/bankAccountSlice'
 import referralSlice from './modules/referral/referralSlice'
 import depositPackageSlice from './modules/depositPackage/depositPackageSlice'
+import transactionSlice from './modules/transaction/transactionSlice'
 
 export const AppStore = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const AppStore = configureStore({
     share: shareSlice,
     bankAccount: bankAccountSlice,
     referral: referralSlice,
-    depositPackage: depositPackageSlice
+    depositPackage: depositPackageSlice,
+    transaction: transactionSlice
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false
