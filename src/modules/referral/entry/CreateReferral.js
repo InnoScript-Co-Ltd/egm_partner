@@ -11,28 +11,39 @@ import { paths } from "../../../constants/paths";
 export const CreateReferral = () => {
 
     const [loading, setLoading] = useState(false);
+    const [referral, setReferral] = useState(null);
 
     const { profile } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const submitCreate = async () => {
+    const generateReferral = async () => {
         setLoading(true);
-        await referralService.store(dispatch);
+        const result = await referralService.store(dispatch);
+
+        if (result.status === 200) {
+            setReferral(`agent.evanglobalmanagement.com/agent/register/${result.data.link}`);
+        }
+
         setLoading(false);
+    }
+
+    const copyReferralLink = () => {
+        const copyText = document.getElementById("referral-link").innerHTML;
+        navigator.clipboard.writeText(copyText);
     }
 
     const DepositFirst = () => {
         return (
             <div className="w-full">
-                <p> 
-                    First, you need to deposit at least 10,000,000 MMK and you can generate main agent referral links. 
-                    Depoist's ROI (Return on investment) rate is 15% and referral commission is 1% total deposit amount on 
+                <p>
+                    First, you need to deposit at least 10,000,000 MMK and you can generate main agent referral links.
+                    Depoist's ROI (Return on investment) rate is 15% and referral commission is 1% total deposit amount on
                     main agent or sub agent.
                 </p>
 
-                <Button 
+                <Button
                     label="Deposit"
                     onClick={() => navigate(paths.deposit)}
                 />
@@ -48,8 +59,26 @@ export const CreateReferral = () => {
     return (
         <Card
             title="Generate Referral Link"
-            subTitle="First, you need to deposit at least 10,000,000 MMK and you can generate main agent referral link."
         >
+            <div className="flex flex-column align-items-start justify-content-center">
+                {referral && (
+                    <code onClick={() => copyReferralLink()}>
+                        <span id="referral-link"> {referral} </span>
+                        <Button icon="pi pi-copy" rounded text />
+                    </code>
+
+                )}
+
+                <Button
+                    className="mt-3"
+                    label="Create Referral Link"
+                    severity="warning"
+                    disabled={loading}
+                    loading={loading}
+                    onClick={() => generateReferral()}
+                />
+            </div>
+
             {profile && profile.deposit.length === 0 && (
                 <Message
                     content={<DepositFirst />}

@@ -1,6 +1,6 @@
 import { Dashboard } from "./view/Dashboard";
 
-export const dashboardRoute = [
+export const dashboardRoutes = [
     {
         path: "/dashboard",
         element: <Dashboard />

@@ -18,10 +18,10 @@ export const depositPayloaad = {
         status: ""
     },
     columns: [
-        { field: 'account_number', header: 'Account Number' },
-        { field: 'account_name', header: 'Account Name' },
-        { field: 'bank_type', header: 'Bank Type' },
-        { field: 'branch', header: 'Branch' },
-        { field: 'branch_address', header: 'Address' }
+        { field: 'deposit_amount', header: 'Deposit Amount' },
+        { field: 'roi_amount', header: 'Monthly ROI Amount' },
+        { field: 'duration', header: 'Duration' },
+        { field: 'created_at', header: 'Start Date' },
+        { field: 'expired_at', header: 'Expired Date' }
     ]
 }

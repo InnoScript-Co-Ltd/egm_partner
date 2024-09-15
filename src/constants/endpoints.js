@@ -17,5 +17,6 @@ export const endpoints = {
     depositPackage: "deposit-package",
     merchantBankAccount: "merchant-bank-account",
     deposit: "deposit",
-    transaction: "transaction"
+    transaction: "transaction",
+    dashboard: "dashboard"
 }
