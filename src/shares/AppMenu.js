@@ -20,6 +20,11 @@ export const AppMenu = () => {
             path: paths.dashboard
         },
         {
+            label: "Agent",
+            icon: "pi-user",
+            path: paths.agent
+        },
+        {
             label: "Deposit",
             icon: "pi-credit-card",
             path: paths.deposit
@@ -86,7 +91,7 @@ export const AppMenu = () => {
                     className="app-menu-item"
                     onClick={() => logout()}
                 >
-                    <i className="pi-power-off"></i>
+                    <i className="pi pi-power-off"></i>
                 </span>
                 <small style={{ paddingBottom: "10px", fontSize: "10px" }}> Logout </small>
             </div>

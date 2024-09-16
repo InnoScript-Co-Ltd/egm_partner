@@ -6,4 +6,5 @@ export const paths = {
     referral: '/referral',
     deposit: "/deposit",
     transaction: "/transaction",
+    agent: '/agent'
 }

@@ -5,6 +5,7 @@ import bankAccountSlice from './modules/bank/bankAccountSlice'
 import referralSlice from './modules/referral/referralSlice'
 import depositPackageSlice from './modules/depositPackage/depositPackageSlice'
 import transactionSlice from './modules/transaction/transactionSlice'
+import agentSlice from './modules/agent/agentSlice'
 
 export const AppStore = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ export const AppStore = configureStore({
     bankAccount: bankAccountSlice,
     referral: referralSlice,
     depositPackage: depositPackageSlice,
-    transaction: transactionSlice
+    transaction: transactionSlice,
+    agent: agentSlice
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false
