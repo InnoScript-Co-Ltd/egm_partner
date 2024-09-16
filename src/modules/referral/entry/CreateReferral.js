@@ -7,6 +7,7 @@ import { Message } from "primereact/message";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../../constants/paths";
+import { KYCSTATUS } from "../../../constants/config";
 
 export const CreateReferral = () => {
 
@@ -69,14 +70,18 @@ export const CreateReferral = () => {
 
                 )}
 
-                <Button
-                    className="mt-3"
-                    label="Create Referral Link"
-                    severity="warning"
-                    disabled={loading}
-                    loading={loading}
-                    onClick={() => generateReferral()}
-                />
+
+                {profile && profile.deposit.length > 0 && profile.kyc_status === KYCSTATUS.FULL_KYC && profile.status === "ACTIVE" && (
+                    <Button
+                        className="mt-3"
+                        label="Create Referral Link"
+                        severity="warning"
+                        disabled={loading}
+                        loading={loading}
+                        onClick={() => generateReferral()}
+                    />
+                )}
+
             </div>
 
             {profile && profile.deposit.length === 0 && (

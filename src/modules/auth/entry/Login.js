@@ -24,7 +24,6 @@ export const Login = () => {
     const submitLogin = async () => {
         setLoading(true);
         const result = await authService.login(payload, dispatch);
-        console.log(result);
         if(result.status === 200) {
             navigate('/dashboard');
         }

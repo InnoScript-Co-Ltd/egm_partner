@@ -5,13 +5,11 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { CreateReferral } from "../entry/CreateReferral";
 import { KYCSTATUS } from "../../../constants/config";
 import { Notification } from "../../../shares/Notification";
 import { referralService } from "../referralService";
 import { referralPayload } from "../referralPayload";
-import { endpoints } from "../../../constants/endpoints";
 import moment from "moment";
 import { Button } from "primereact/button";
 
@@ -22,7 +20,6 @@ export const ReferralList = () => {
     const { profile } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const copyReferralLink = (id) => {
         const copyText = document.getElementById(id).innerHTML;

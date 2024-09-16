@@ -1,5 +1,5 @@
 import { endpoints } from "../../constants/endpoints"
-import { getRequest, updateRequest } from "../../helpers/api"
+import { getRequest } from "../../helpers/api"
 import { index } from "./depositPackageSlice";
 
 export const depositPackageService = {

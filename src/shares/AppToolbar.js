@@ -1,6 +1,4 @@
-import { Image } from "primereact/image"
 import { Toolbar } from "primereact/toolbar"
-import LOGO from "../assets/images/egm_logo.png";
 import { Profile } from "./Profile";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../constants/paths";

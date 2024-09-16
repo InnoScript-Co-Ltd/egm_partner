@@ -1,12 +1,8 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { KYCSTATUS } from "../../constants/config";
 import { Message } from 'primereact/message';
-import { Card } from 'primereact/card';
 
 export const KYCStatusMessage = () => {
-
-    const [loading, setLoading] = useState(false);
 
     const { profile } = useSelector(state => state.auth);
 
