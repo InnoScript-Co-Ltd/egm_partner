@@ -1,13 +1,17 @@
 
 import { endpoints } from "../../constants/endpoints";
 import { getRequest, postRequest } from "../../helpers/api";
-import { httpErrorHandler, successNotiMessage } from "../../helpers/handler";
+import { successNotiMessage } from "../../helpers/handler";
 import { index } from "./referralSlice";
 
 export const referralService = {
-    store: async (dispatch) => {
-        const result = await postRequest(endpoints.referral, null, dispatch);
-        await httpErrorHandler(result, dispatch);
+    levelFourReferralStore: async (dispatch) => {
+        const result = await postRequest(`${endpoints.referral}/level-four`, null, dispatch);
+        return successNotiMessage(dispatch, result);
+    },
+
+    commissionReferralStore: async (dispatch) => {
+        const result = await postRequest(`${endpoints.referral}/commission`, null, dispatch);
         return successNotiMessage(dispatch, result);
     },
 

@@ -21,7 +21,7 @@ export const getRequest = async (path, params, dispatch) => {
         const result = await http.get(url);
         return httpResponseHandler(result, dispatch);
     } catch (error) {
-        return httpErrorHandler(error.response, dispatch);
+        return httpErrorHandler(error, dispatch);
     }
 }
 
@@ -40,7 +40,7 @@ export const updateRequest = async (path, payload, dispatch) => {
           });
         return httpResponseHandler(result, dispatch);
     } catch (error) {
-        return httpErrorHandler(error.response, dispatch);
+        return httpErrorHandler(error, dispatch);
     }
 }
 
@@ -55,8 +55,7 @@ export const postRequest = async (path, payload, dispatch) => {
         const result = await http.post(path, payload);
         return httpResponseHandler(result, dispatch);
     } catch (error) {
-        console.log(error);
-        return httpErrorHandler(error.response, dispatch);
+        return httpErrorHandler(error, dispatch);
     }
 }
 
@@ -71,7 +70,7 @@ export const putRequest = async (path, payload, dispatch) => {
         const result = await http.put(path, payload);
         return httpResponseHandler(result, dispatch);
     } catch (error) {
-        return httpErrorHandler(error.response, dispatch);
+        return httpErrorHandler(error, dispatch);
     }
 }
 
@@ -85,6 +84,6 @@ export const delRequest = async (path, dispatch) => {
         const result = await http.delete(path);
         return httpResponseHandler(result);
     } catch (error) {
-        return httpErrorHandler(error.response, dispatch);
+        return httpErrorHandler(error, dispatch);
     }
 }

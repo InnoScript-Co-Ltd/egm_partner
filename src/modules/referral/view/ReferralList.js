@@ -10,8 +10,8 @@ import { KYCSTATUS } from "../../../constants/config";
 import { Notification } from "../../../shares/Notification";
 import { referralService } from "../referralService";
 import { referralPayload } from "../referralPayload";
-import moment from "moment";
 import { Button } from "primereact/button";
+import moment from "moment";
 
 export const ReferralList = () => {
 

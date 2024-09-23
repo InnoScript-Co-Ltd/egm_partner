@@ -18,10 +18,11 @@ export const payloadHandler = (payload, value, field, fn) => {
  * Response Hander 
  * @param {*} response
  * */
-export const httpResponseHandler = (response, dispatch) => {
-    if (response.status === 200) {
-        dispatch(setErrors(null));
+export const httpResponseHandler = async (response, dispatch) => {
+    await dispatch(setErrors(null));
+    await dispatch(setNotification(null));
 
+    if (response.status === 200) {
         return {
             status: response.status,
             data: response.data.data,
@@ -31,56 +32,57 @@ export const httpResponseHandler = (response, dispatch) => {
 }
 
 /** 
- * Response Hander 
- * @param {*} errors
+ * Http Response Hander 
+ * @param {*} httpResponse
  * @param {*} dispatch
  * */
-export const httpErrorHandler = async (errors, dispatch) => {
+export const httpErrorHandler = async (httpResponse, dispatch) => {
+    await dispatch(setErrors(null));
+    await dispatch(setNotification(null));
 
-    if (errors && errors.status === 400) {
-        await dispatch(setErrors(null));
+    if(httpResponse.code === "ERR_NETWORK") {
         await dispatch(setNotification({
             severity: "warn",
-            summary: "Bad Request",
-            detail: errors.data.message
+            summary: "Network Error",
+            detail: "Please check your internet connection!"
         }));
 
         return {
-            status: errors.status,
-            message: errors.message,
+            status: 0,
+            data: null,
+            message: "Please check yout internet connection!"
         }
     }
 
-    if (errors && errors.status === 500) {
-        await dispatch(setNotification({
-            severity: "error",
-            summary: "Internal Server Error",
-            detail: errors.data.message
-        }));
+    if(httpResponse.response) {
+        const {status, statusText, data } = httpResponse.response;
 
-        return {
-            status: errors.status,
-            message: errors.data.message,
+        if(status === 400 || status === 404 || status === 403 || status === 500) {
+            dispatch(setNotification({
+                severity: "warn",
+                summary: statusText,
+                detail: data.message
+            }));
+
+            return httpResponse;
+        }
+
+        if(status === 401) {
+            removeAllData();
+            window.location.replace(paths.login);
+            return httpResponse;
         }
     }
 
-    if (errors && errors.status === 422) {
-        await dispatch(setErrors(errors.data.data));
+    return httpResponse;
+}   
 
-        return {
-            status: errors.status,
-            message: errors.data.message,
-        }
-    }
-
-    if (errors && errors.status === 401) {
-        removeAllData();
-        window.location.replace(paths.login);
-    }
-
-    return errors;
-}
-
+/**
+ * 
+ * @param {*} dispatch 
+ * @param {*} result 
+ * @returns 
+ */
 export const successNotiMessage = (dispatch, result) => {
     if (result.status === 200) {
         dispatch(setNotification({

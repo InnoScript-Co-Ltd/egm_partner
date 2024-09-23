@@ -7,7 +7,7 @@ import { Message } from "primereact/message";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../../constants/paths";
-import { KYCSTATUS } from "../../../constants/config";
+import { KYCSTATUS, ReferralLinkType } from "../../../constants/config";
 
 export const CreateReferral = () => {
 
@@ -19,12 +19,25 @@ export const CreateReferral = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const generateReferral = async () => {
+    const generateReferral = async (type) => {
         setLoading(true);
-        const result = await referralService.store(dispatch);
 
-        if (result.status === 200) {
-            setReferral(`agent.evanglobalmanagement.com/agent/register/${result.data.link}`);
+        if (type === ReferralLinkType.COMMISSION_REFERRAL) {
+            const result = await referralService.commissionReferralStore(dispatch);
+
+            if (result.status === 200) {
+                await referralService.index(dispatch);
+                setReferral(`agent.evanglobalmanagement.com/agent/register/${result.data.link}`);
+            }
+        }
+
+        if (type === ReferralLinkType.LEVEL_FOUR_REFERRAL) {
+            const result = await referralService.levelFourReferralStore(dispatch);
+
+            if (result.status === 200) {
+                await referralService.index(dispatch);
+                setReferral(`agent.evanglobalmanagement.com/agent/register/${result.data.link}`);
+            }
         }
 
         setLoading(false);
@@ -72,14 +85,29 @@ export const CreateReferral = () => {
 
 
                 {profile && profile.deposit.length > 0 && profile.kyc_status === KYCSTATUS.FULL_KYC && profile.status === "ACTIVE" && (
-                    <Button
-                        className="mt-3"
-                        label="Create Referral Link"
-                        severity="warning"
-                        disabled={loading}
-                        loading={loading}
-                        onClick={() => generateReferral()}
-                    />
+                    <div>
+                        <Button
+                            size="small"
+                            className="mt-3"
+                            label="Create Level Four Referral Link"
+                            icon="pi pi-share-alt"
+                            severity="warning"
+                            disabled={loading}
+                            loading={loading}
+                            onClick={() => generateReferral(ReferralLinkType.LEVEL_FOUR_REFERRAL)}
+                        />
+
+                        <Button
+                            size="small"
+                            className="mt-3 ml-3"
+                            label="Create Commission Referral Link"
+                            icon="pi pi-share-alt"
+                            severity="warning"
+                            disabled={loading}
+                            loading={loading}
+                            onClick={() => generateReferral(ReferralLinkType.COMMISSION_REFERRAL)}
+                        />
+                    </div>
                 )}
 
             </div>

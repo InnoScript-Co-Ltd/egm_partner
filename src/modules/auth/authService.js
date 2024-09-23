@@ -10,7 +10,6 @@ export const authService = {
         if (result.status === 200) {
             dispatch(update(result.data));
         }
-
         return successNotiMessage(dispatch, result);
     },
 
@@ -39,11 +38,9 @@ export const authService = {
 
     kycUpdate: async (payload, dispatch) => {
         const result = await updateRequest(endpoints.accountKYC, payload, dispatch);
-        
         if (result.status === 200) {
             dispatch(setProfile(result.data));
         }
-
         return successNotiMessage(dispatch, result);
     },
 
