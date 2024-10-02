@@ -24,7 +24,7 @@ export const AgentList = () => {
 
     const initloading = useCallback(async () => {
         setLoading(true);
-        await agentService.index(dispatch, null, dispatch);
+        await agentService.index(null, dispatch);
         setLoading(false);
     }, [dispatch]);
 
@@ -52,8 +52,8 @@ export const AgentList = () => {
                         <div className="col-12 mt-3">
                             {agents && (
                                 <Card
-                                    title="Transaction Record History"
-                                    subTitle="transaction types - [DEPOSIT_PENDING, DEPOSIT_PAYMENT_ACCEPTED, REJECT]"
+                                    title="Agent List"
+                                    subTitle="Agent Type [MAIN_AGENT, SUB_AGENT] | Referral Type [COMMISSION_REFERRAL, LEVEL_FOUR_REFERRAL]"
                                 >
                                     <DataTable
                                         dataKey="id"
@@ -70,7 +70,7 @@ export const AgentList = () => {
                                                     key={`bank_account_id_${index}`}
                                                     body={(value) => {
                                                         switch (column.field) {
-                                                            case "account_number":
+                                                            case "first_name":
                                                                 return (
                                                                     <span
                                                                         style={{ textDecoration: "underline", cursor: "pointer" }}

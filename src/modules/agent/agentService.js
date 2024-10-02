@@ -6,7 +6,7 @@ import { index } from "./agentSlice";
 export const agentService = {
     index: async (params, dispatch) => {
         const result = await getRequest(endpoints.agent, params, dispatch);
-        
+
         if(result.status === 200) {
             dispatch(setNotification(null));
             dispatch(setErrors(null));

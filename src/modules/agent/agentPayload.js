@@ -4,12 +4,16 @@ export const agentPayload = {
         {field: 'sender_account_number', header: 'AC Number'},
         {field: 'bank_type', header: 'Bank Type'},
         {field: 'merchant_account_name', header: 'Merchant Name'},
-        {field: 'merchant_account_number', header: 'Merchant Account Number'},
-        {field: 'pakage_name', header: "Package" },
-        {field: 'package_roi_rate', header: "ROI" },
-        {field: 'package_duration', header: "Duration" },
-        {field: 'package_deposit_amount', header: 'Deposit Amount'},
-        {field: 'transaction_type', header: 'Transaction Type'},
+        {field: 'first_name', header: 'First Name'},
+        {field: 'last_name', header: "Last Name"},
+        {field: "nrc", header: "NRC"},
+        {field: 'email', header: "Email" },
+        {field: 'dob', header: "DOB" },
+        {field: 'address', header: 'Address'},
+        {field: 'commission', header: "Commission" },
+        {field: 'agent_type', header: 'Agent Type'},
+        {field: 'kyc_status', header: "KYC Status"},
+        {field: 'referral_type', header: "Referral Type"},
         {field: 'status', header: "Status"}
     ]
 }
