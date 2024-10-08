@@ -1,6 +1,6 @@
 import { getData } from "../libs/localstorage";
 
-export const env = 0;
+export const env = 1;
 
 export const baseUrl = [
     'http://localhost:8000',
@@ -46,49 +46,16 @@ export const notificationOptions = {
 }
 
 export const bankTypes = [
-    {
-        name: "AYA BANK",
-        code: "aya_bank",
-        icon: ""
-    },
-    {
-        name: "CB BANK",
-        code: "cb_bank",
-        icon: ""
-    },
-    {
-        name: "UAB BANK",
-        code: "uab_bank",
-        icon: ""
-    },
-    {
-        name: "KBZ BANK SPECIAL ACC",
-        code: "kbz_bank_special",
-        icon: ""
-    },
-    {
-        name: "A BANK",
-        code: "a_bank",
-        icon: ""
-    },
-    {
-        name: "MCB BANK",
-        code: "mcb_bank",
-        icon: ""
-    },
-
-    {
-        name: "YOMA (Flexi every day)",
-        code: "yoma_bank_flexi",
-        icon: ""
-    },
-    {
-        name: "YOMA (Flexi saving)",
-        code: "yoma_bank_flexi_saving",
-        icon: ""
-    },
-
-]
+    { name: "AYA BANK", code: "aya_bank", icon: "" },
+    { name: "CB BANK", code: "cb_bank", icon: "" },
+    { name: "UAB BANK", code: "uab_bank", icon: "" },
+    { name: "KBZ BANK SPECIAL ACC", code: "kbz_bank_special", icon: "" },
+    { name: "A BANK", code: "a_bank", icon: "" },
+    { name: "MCB BANK", code: "mcb_bank", icon: "" },
+    { name: "YOMA (Flexi every day)", code: "yoma_bank_flexi", icon: "" },
+    { name: "YOMA (Flexi saving)", code: "yoma_bank_flexi_saving", icon: "" },
+    { label: "YOMA (Flexi acc)", value: "yoma_bank_flexi_acc", icon: "" },
+];
 
 export const statusOptions = [
     { status: "ACTIVE", color: "badge-success" },
